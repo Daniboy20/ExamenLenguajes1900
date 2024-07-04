@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vuelos', function (Blueprint $table) {
-            $table->string('numeroVuelo',5)->primary();
-            $table->string('origen');
-            $table->integer('numeroAsientos');
-            $table->timestamp('fechaSalida');
+        Schema::create('directorio', function (Blueprint $table) {
+            $table->string('codigoEntrada')->key();
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->string('correo')->unique();
+            $table->string('telefono');
         });
     }
 
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vuelos');
+        //
     }
 };

@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipoasientos', function (Blueprint $table) {
-            $table->id('idTipoAsiento')->autoIncrement();
-            $table->string('descripcion',50);
-            $table->double('precio');
-            $table->string('estado',2);
-
+        Schema::create('contactos', function (Blueprint $table) {
+            $table->id();
+            $table->string('codigoEntrada')->key();
+            $table->timestamp('apellido')->nullable();
+            $table->string('telefono');
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipoasientos');
+        //
     }
 };
